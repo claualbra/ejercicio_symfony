@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LaLiga{% endblock %}
+
+{% block body %}
+    <div style="border: 1px solid black; padding: 5px; margin: 5px; text-align: center;" id="header-div">
+        <h1><a href="{{ path('home') }}">La Liga</a></h1>
+        <p>Selecciona lo que quiere hacer a continuación.</p>
+        {% if arrayMenu is defined %}
+            {% for key, value in arrayMenu%}
+                <a href="{{ path(key) }}">{{ value }}</a><br>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

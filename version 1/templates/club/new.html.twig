@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Club{% endblock %}
+
+{% block body %}
+    <div style="margin: 5px; text-align: center;" id="header-div">
+        <h1><a href="{{ path('home') }}">Create Club</a></h1>
+
+        {{ include('club/_form.html.twig') }}
+
+        <a href="{{ path('club_index') }}">Show all the clubs</a><br>
+        <a href="{{ path('home') }}">back to menu</a>
+        <script>
+            $(document).ready(function(){
+                $('.mask').mask('000-000-000');
+            });
+        </script>
+    </div>
+{% endblock %}

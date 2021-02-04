@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Club index{% endblock %}
+
+{% block body %}
+<div style="margin: 5px; text-align: center;" id="header-div">
+    <h1><a href="{{ path('home') }}">Club Index</a></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Borrado</th>
+                <th>Jugadores</th>
+                <th rowspan="0">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.id }}</td>
+                <td>{{ club.nombre }}</td>
+                <td>{{ club.telefono}}</td>
+                <td>{{ club.borrado ? 'Yes' : 'No' }}</td>
+                <td>
+                    {% for jugador in club.jugadores %}
+                        {{ jugador.nombre }}<br>
+                    {% else %}
+                        Not players
+                    {% endfor %}
+                <td>
+                    <br><a href="{{ path('club_show', {'id': club.id}) }}">show</a><br>
+                    <a href="{{ path('club_edit', {'id': club.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('club_new') }}">Create new</a><br>
+    <a href="{{ path('home') }}">back to menu</a>
+</div>
+{% endblock %}
