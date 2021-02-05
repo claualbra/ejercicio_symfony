@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Jugadores{% endblock %}
+
+{% block body %}
+    <div style="margin: 5px; text-align: center;" id="header-div">
+        <h1><a href="{{ path('home') }}">Create new Jugador</a></h1>
+
+        {{ include('jugadores/_form.html.twig') }}
+
+        <a href="{{ path('home') }}">back to menu</a>
+    </div>
+{% endblock %}
