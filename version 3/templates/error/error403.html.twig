@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="border: 1px solid black; padding: 5px; margin: 5px; text-align: center;" id="header-div">
+        <h1>Acceso Denegado</h1>
+
+        <p>
+            En esta pagina solo se puede entrar siendo un club.
+        </p><br>
+        <p> Porfavor entra como Club <a href="{{ path('app_login') }}">Log in</a>.</p><br>
+        <p> O vuelve al <a href="{{ path('home') }}">Menu</a> </p>
+    </div>
+{% endblock %}
